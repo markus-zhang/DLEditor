@@ -18,6 +18,88 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cAI.h" />
+    <ClInclude Include="cAnimation.h" />
+    <ClInclude Include="cAnimationManager.h" />
+    <ClInclude Include="cCamera.h" />
+    <ClInclude Include="cCursor.h" />
+    <ClInclude Include="cDatabase.h" />
+    <ClInclude Include="cDMLParser.h" />
+    <ClInclude Include="cEditorAction.h" />
+    <ClInclude Include="cEditorPlayerStart.h" />
+    <ClInclude Include="cEditorState.h" />
+    <ClInclude Include="cEffect.h" />
+    <ClInclude Include="cEntity.h" />
+    <ClInclude Include="cEntityFactory.h" />
+    <ClInclude Include="cEntityTest.h" />
+    <ClInclude Include="cFile.h" />
+    <ClInclude Include="cGameLevel.h" />
+    <ClInclude Include="cGameMoveObject.h" />
+    <ClInclude Include="cGameState.h" />
+    <ClInclude Include="cGraphics.h" />
+    <ClInclude Include="cGUI.h" />
+    <ClInclude Include="cGUIBasicButton.h" />
+    <ClInclude Include="cGUIPopMenu.h" />
+    <ClInclude Include="cInput.h" />
+    <ClInclude Include="cItem.h" />
+    <ClInclude Include="cLevel.h" />
+    <ClInclude Include="cMouse.h" />
+    <ClInclude Include="cParser.h" />
+    <ClInclude Include="cSDL2GameObject.h" />
+    <ClInclude Include="cSDL2Graphics.h" />
+    <ClInclude Include="cSDL2Rect.h" />
+    <ClInclude Include="cState.h" />
+    <ClInclude Include="cStateManager.h" />
+    <ClInclude Include="cStaticButton.h" />
+    <ClInclude Include="cTextInput.h" />
+    <ClInclude Include="cTile.h" />
+    <ClInclude Include="cTimer.h" />
+    <ClInclude Include="DebugTool.h" />
+    <ClInclude Include="Defines.h" />
+    <ClInclude Include="Enums.h" />
+    <ClInclude Include="math.h" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
+    <ClInclude Include="Utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cAI.cpp" />
+    <ClCompile Include="cAnimation.cpp" />
+    <ClCompile Include="cAnimationManager.cpp" />
+    <ClCompile Include="cCursor.cpp" />
+    <ClCompile Include="cDatabase.cpp" />
+    <ClCompile Include="cDMLParser.cpp" />
+    <ClCompile Include="cEditorAction.cpp" />
+    <ClCompile Include="cEditorState.cpp" />
+    <ClCompile Include="cEffect.cpp" />
+    <ClCompile Include="cEntity.cpp" />
+    <ClCompile Include="cEntityFactory.cpp" />
+    <ClCompile Include="cEntityTest.cpp" />
+    <ClCompile Include="cFile.cpp" />
+    <ClCompile Include="cGameLevel.cpp" />
+    <ClCompile Include="cGameMoverObject.cpp" />
+    <ClCompile Include="cGameState.cpp" />
+    <ClCompile Include="cGraphics.cpp" />
+    <ClCompile Include="cGUI.cpp" />
+    <ClCompile Include="cGUIBasicButton.cpp" />
+    <ClCompile Include="cGUIPopMenu.cpp" />
+    <ClCompile Include="cInput.cpp" />
+    <ClCompile Include="cItem.cpp" />
+    <ClCompile Include="cLevel.cpp" />
+    <ClCompile Include="cMouse.cpp" />
+    <ClCompile Include="cParser.cpp" />
+    <ClCompile Include="cSDL2GameObject.cpp" />
+    <ClCompile Include="cSDL2Graphics.cpp" />
+    <ClCompile Include="cSDL2Rect.cpp" />
+    <ClCompile Include="cStateManager.cpp" />
+    <ClCompile Include="cStaticButton.cpp" />
+    <ClCompile Include="cTextInput.cpp" />
+    <ClCompile Include="cTile.cpp" />
+    <ClCompile Include="cTimer.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="sqlite3.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9B16F194-82FF-46D7-BE57-93D9C94EB675}</ProjectGuid>
     <RootNamespace>DLEditor</RootNamespace>
@@ -57,24 +139,36 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\Dragonlance_Map_Editor\Dragonlance_Map_Editor\DLEditor.props" />
+    <Import Project="..\..\VS2015\Editor.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\VS2015\Editor.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\Dragonlance_Map_Editor\Dragonlance_Map_Editor\DLEditor.props" />
+    <Import Project="..\..\VS2015\Editor.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\VS2015\Editor.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>D:\GAMEDEV\SQLITE3;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SQLITE3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -109,8 +203,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
