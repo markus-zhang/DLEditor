@@ -20,6 +20,7 @@
 #include "sqlite3.h"
 #include "cDatabase.h"
 #include "cEditorPlayerStart.h"
+//#include "cProperty.h"
 
 
 class cEditorState : public cState

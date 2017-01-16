@@ -57,6 +57,9 @@ cGameState::cGameState(cGraphics* graphics, cInput* input) :
 		//EDITOR_MOUSE_Y_START,
 		//EDITOR_CURSOR_WIDTH, EDITOR_CURSOR_HEIGHT);
 	//m_Mode = Mode_Tile;
+	std::string test = "   <blah>   "+'\n';
+	m_FileManager.RemoveSpace(test);
+	std::cout << "test is " << test << "\n";
 
 	//Test Inventory
 	//m_FileManager.LoadInventoryFromFile("item.txt", m_Inventory);
@@ -206,6 +209,12 @@ void cGameState::HandleInput(cStateManager* state_manager)
 			}
 			//std::cout << m_World[m_CurrentLevel].GetX() << " " << m_World[m_CurrentLevel].GetY() << "\n";
 		}break;
+		case SDL_SCANCODE_A: {
+			// Attack
+			// Ask for direction
+			
+		}break;
+
 
 		}
 	}

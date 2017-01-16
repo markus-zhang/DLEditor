@@ -144,6 +144,12 @@
     <ClInclude Include="cEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cProperty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cMessenger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cAnimation.cpp">
@@ -249,6 +255,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cProperty.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

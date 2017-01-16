@@ -42,6 +42,9 @@ private:
 
 	// Effects
 	cEffectFactory* m_EffectFactory;
+
+	//Cookbook
+	cParser parser;
 };
 
 #endif

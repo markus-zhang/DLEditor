@@ -5,7 +5,7 @@ cFile::~cFile(){}
 
 void cFile::LoadDMLObject()
 {
-	cDMLObject parent;
+	/*cDMLObject parent;
 	parent.m_Tag = "parent tag";
 	parent.m_Parameter = "parent parameter";
 	parent.m_ParameterValue = "parent parameter value";
@@ -42,7 +42,7 @@ void cFile::LoadDMLObject()
 	m_DMLTreeChild->AddChild(m_DMLTreeGrandChild1);
 	m_DMLTreeChild->AddChild(m_DMLTreeGrandChild2);
 
-	m_DMLTree->Walk();
+	m_DMLTree->Walk();*/
 }
 
 bool cFile::CheckFile(const char* filename, int filetype)
@@ -1130,59 +1130,60 @@ bool cFile::LoadEntityTestFactory(const char* filename,
 }
 
 bool cFile::LoadInventoryFromFile(const char* filename,
-	std::vector<cItem>& inventory) {
-	std::ifstream inv_file;
-	inv_file.open(filename);
-	if (!inv_file.is_open())
-	{
-		std::cout << "File not found!";
-		return false;
-	}
+	std::vector<cItem>& inventory) 
+{
+	//std::ifstream inv_file;
+	//inv_file.open(filename);
+	//if (!inv_file.is_open())
+	//{
+	//	std::cout << "File not found!";
+	//	return false;
+	//}
 
-	std::string sTemp, sTag;
-	cItem m_Holder;
+	//std::string sTemp, sTag;
+	//cItem m_Holder;
 
-	//Read item file line by line
+	////Read item file line by line
 
-	while (!inv_file.eof())
-	{
-		getline(inv_file, sTemp);
-		//DebugMessage(sTemp);
-		sTag = m_Parser.GetTag(sTemp);
-		//DebugMessage(sTag);
-		if (sTag == "Item") {
-			//A new item
-			cItem item;
-			while (!inv_file.eof()) {
-				getline(inv_file, sTemp);
-				sTag = m_Parser.GetTag(sTemp);
-				//DebugMessage(sTag);
-				if (sTemp == "</Item>") {
-					DebugMessage("End of Item");
-					//End of item
-					inventory.push_back(item);
-					break;
-				}
-				if (sTag == "Name")		{
-					item.SetName(m_Parser.GetContent(sTemp));
-				}
-				if (sTag == "Class")	{
-					item.SetClass(m_Parser.GetContent(sTemp));
-				}
-				if (sTag == "HP") {
-					int hp = atoi(m_Parser.GetContent(sTemp).c_str());
-					item.SetHP(hp);
-				}
-				if (sTag == "Effect") {
-					cItemEffect effect;
-					effect.m_Effect = m_Parser.GetContent(sTemp);
-					effect.m_Value = m_Parser.ExtractTagValue(sTag);
-					item.AddEffect(effect);
-				}
-			}
-		}
-	}
-	std::cout << "You have " << inventory.size() << " items." <<"\n";
+	//while (!inv_file.eof())
+	//{
+	//	getline(inv_file, sTemp);
+	//	//DebugMessage(sTemp);
+	//	sTag = m_Parser.GetTag(sTemp);
+	//	//DebugMessage(sTag);
+	//	if (sTag == "Item") {
+	//		//A new item
+	//		cItem item;
+	//		while (!inv_file.eof()) {
+	//			getline(inv_file, sTemp);
+	//			sTag = m_Parser.GetTag(sTemp);
+	//			//DebugMessage(sTag);
+	//			if (sTemp == "</Item>") {
+	//				DebugMessage("End of Item");
+	//				//End of item
+	//				inventory.push_back(item);
+	//				break;
+	//			}
+	//			if (sTag == "Name")		{
+	//				item.SetName(m_Parser.GetContent(sTemp));
+	//			}
+	//			if (sTag == "Class")	{
+	//				item.SetClass(m_Parser.GetContent(sTemp));
+	//			}
+	//			if (sTag == "HP") {
+	//				int hp = atoi(m_Parser.GetContent(sTemp).c_str());
+	//				item.SetHP(hp);
+	//			}
+	//			if (sTag == "Effect") {
+	//				cItemEffect effect;
+	//				effect.m_Effect = m_Parser.GetContent(sTemp);
+	//				effect.m_Value = m_Parser.ExtractTagValue(sTag);
+	//				item.AddEffect(effect);
+	//			}
+	//		}
+	//	}
+	//}
+	//std::cout << "You have " << inventory.size() << " items." <<"\n";
 	return true;
 }
 

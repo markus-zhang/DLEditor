@@ -4,7 +4,8 @@
 bool cGUIBasicButton::Load(
 	cGraphics* graphics, SDL_Texture* bitmap,
 	int x, int y, int img_x, int img_y,
-	int width, int height, std::string id, std::string caption) {
+	int width, int height, std::string id, std::string caption,
+	ActionType action) {
 	if (!graphics || !bitmap) {
 		DebugMessage("Critical Error in Graphics System!");
 		return false;
@@ -33,6 +34,53 @@ bool cGUIBasicButton::Load(
 
 	m_Width = width;
 	m_Height = height;
+
+	switch (action)
+	{
+	case Save:
+		m_Action = new cSaveMapAction;
+		break;
+	default:
+		DebugMessage("Invalid action type");
+		break;
+	}
+	return true;
+}
+
+bool cGUIBasicButton::Load(
+	cGraphics* graphics, SDL_Texture* bitmap,
+	int x, int y, int img_x, int img_y,
+	int width, int height, std::string id, std::string caption)
+{
+	if (!graphics || !bitmap) {
+		DebugMessage("Critical Error in Graphics System!");
+		return false;
+	}
+	m_Graphics = graphics;
+	m_Bitmap = bitmap;
+	m_RenderStatus = 0;
+
+	if (id.length() > 0)
+		m_ID = id;
+	else
+		m_ID = "Default";
+
+	if (caption.length() > 0)
+		m_Caption = caption;
+	else
+		m_Caption = "Default";
+
+	m_TextRed = m_TextGreen = m_TextBlue = 255;
+
+	m_X = x;
+	m_Y = y;
+
+	m_ImageX = m_ImageXDefault = img_x;
+	m_ImageY = m_ImageYDefault = img_y;
+
+	m_Width = width;
+	m_Height = height;
+
 	return true;
 }
 
@@ -69,8 +117,13 @@ void cGUIBasicButton::Reset() {
 
 void cGUIBasicButton::OnClick()
 {
-	/*if (m_Action)
+	if (m_Action)
 	{
 		m_Action->Execute();
-	}*/
+	}
+}
+
+void cGUIBasicButton::OnClick11()
+{
+	//std::function<void()> callback = std::bind(cFile::LoadMap, this);
 }

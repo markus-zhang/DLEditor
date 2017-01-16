@@ -2,17 +2,23 @@
 #define CGUIBASICBUTTON_H_
 
 // Header file for buttons on GUI
-//#include <functional>
+#include <functional>
 #include "cGraphics.h"
 #include "Defines.h"
 //#include "cFile.h"
 #include "cEditorAction.h"
 
 //cFile file;
+class cFile;
 
 class cGUIBasicButton
 {
 public:
+	bool Load(cGraphics* graphics, SDL_Texture* bitmap,
+		int x, int y,
+		int img_x, int img_y, int width, int height,
+		std::string id, std::string caption, ActionType action);
+
 	bool Load(cGraphics* graphics, SDL_Texture* bitmap,
 		int x, int y,
 		int img_x, int img_y, int width, int height,
@@ -31,6 +37,7 @@ public:
 	void OnFloat();
 	void Reset();
 	void OnClick();
+	void OnClick11();
 
 private:
 	std::string m_ID;
@@ -59,6 +66,6 @@ private:
 public:
 
 	//Action
-	//cAction* m_Action;
+	cAction* m_Action;
 };
 #endif

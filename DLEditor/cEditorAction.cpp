@@ -79,3 +79,114 @@ void cSaveMapAction::Execute()
 		DebugMessage("SaveMapAction::Execute: Some elements are NULL or of length 0!");
 	}
 }
+
+/////////////////////////////////////////////////////
+
+void cLoadMapAction::Init(const char* filename,
+	cGraphics* graph, SDL_Texture* bitmap,
+	cLevel& level)
+{
+	m_Filename = filename;
+	m_Graphics = graph;
+	m_Bitmap = bitmap;
+	m_Level = level;
+}
+
+void cLoadMapAction::Execute()
+{
+	LoadMap(m_Filename, m_Graphics, m_Bitmap, m_Level);
+}
+
+bool cLoadMapAction::LoadMap(const char* filename,
+	cGraphics* graph, SDL_Texture* bitmap,
+	cLevel& level)
+{
+	std::ifstream map_file;
+	map_file.open(filename);
+	if (!map_file.is_open())
+	{
+		std::cout << "File not found!";
+		return false;
+	}
+
+	std::string sTemp;
+	cTile m_Holder;
+	std::string PlayerStartX, PlayerStartY;
+
+	//Read map file line by line
+	//Head Lines
+	getline(map_file, sTemp);
+	if (sTemp.length() <= 0) return false;
+	//Get Map ID
+	if (m_Parser.GetTag(sTemp) == "MapID") {
+		//MODIFY NEED TO GET RID OF TAGS!!!
+		DebugMessage(m_Parser.GetTag(sTemp));
+		level.SetID(m_Parser.GetContent(sTemp.c_str()));
+	}
+	else DebugMessage("Wrong data file!");
+
+	// Get Player Start X
+	getline(map_file, sTemp);
+	if (m_Parser.GetTag(sTemp) == "PlayerX")
+	{
+		PlayerStartX = m_Parser.GetContent(sTemp);
+		DebugMessage(PlayerStartX);
+	}
+	else DebugMessage("Wrong data file!");
+
+	getline(map_file, sTemp);
+	// Get Player Start Y
+	if (m_Parser.GetTag(sTemp) == "PlayerY")
+	{
+		PlayerStartY = m_Parser.GetContent(sTemp);
+		DebugMessage(PlayerStartY);
+	}
+	else DebugMessage("Wrong data file!");
+
+	if (PlayerStartX.length() >= 0 && PlayerStartY.length() >= 0)
+	{
+		level.SetPlayerStart(atoi(PlayerStartX.c_str()),
+			atoi(PlayerStartY.c_str()));
+	}
+
+	while (!map_file.eof())
+	{
+		getline(map_file, sTemp);
+		if (sTemp.length() <= 0) break;
+		m_Holder.SetID(sTemp.c_str());
+
+		getline(map_file, sTemp);
+		m_Holder.SetX(atoi(sTemp.c_str()));
+		//cout << m_Holder.GetX() << " ";
+
+		getline(map_file, sTemp);
+		m_Holder.SetY(atoi(sTemp.c_str()));
+		//cout << m_Holder.m_Y << " ";
+
+		getline(map_file, sTemp);
+		m_Holder.SetImageX(atoi(sTemp.c_str()));
+		//cout << m_Holder.m_ImageX << " ";
+
+		getline(map_file, sTemp);
+		m_Holder.SetImageY(atoi(sTemp.c_str()));
+		//cout << m_Holder.m_ImageY << " ";
+
+		getline(map_file, sTemp);
+		m_Holder.SetWidth(atoi(sTemp.c_str()));
+		//cout << m_Holder.m_Width << " ";
+
+		getline(map_file, sTemp);
+		m_Holder.SetHeight(atoi(sTemp.c_str()));
+		//cout << m_Holder.m_Height << " ";
+
+		getline(map_file, sTemp);
+		m_Holder.SetAccess(atoi(sTemp.c_str()));
+
+		//m_Holder.dump();
+		m_Holder.SetGraph(graph);
+		m_Holder.SetPic(bitmap);
+		level.GetMap().push_back(m_Holder);
+	}
+	map_file.close();
+	return true;
+}

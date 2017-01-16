@@ -3,8 +3,10 @@
 
 #include <string>
 #include <vector>
+#include <map>
 #include <algorithm>
 #include "DebugTool.h"
+#include "cProperty.h"
 
 struct cNode 
 {
@@ -39,6 +41,15 @@ public:
 	int ExtractTagValue(std::string lefttag);
 
 	int Str2Int(std::string);
+	inline void rtrim(std::string& s, char c) {
+		if (s.empty())
+			return;
+		std::string::iterator p;
+		for (p = s.end(); p != s.begin() && *--p == c;);
+		/*if (*p != c)
+			p++;*/
+		s.erase(p, s.end());
+	}
 };
 
 #endif

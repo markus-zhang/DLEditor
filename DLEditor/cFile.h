@@ -17,7 +17,7 @@
 #include "cItem.h"
 //#include "cPlayerEntity.h"
 #include "cGUIBasicButton.h"
-#include "cDMLParser.h"
+//#include "cDMLParser.h"
 
 
 class cFile
@@ -38,7 +38,7 @@ private:
 	cParser m_Parser;
 
 	// Experimental
-	cDMLObjectNode* m_DMLTree;
+	//cDMLObjectNode* m_DMLTree;
 
 public:
 	// Experimental
@@ -127,7 +127,7 @@ public:
 
 	// DML Experiment
 	void BuildDMLTree(std::string filename);
-	bool IsFullNode(std::string line);
-	cDMLObjectNode* BuildDMLNode(std::string line);
+	//bool IsFullNode(std::string line);
+	//cDMLObjectNode* BuildDMLNode(std::string line);
 };
 #endif

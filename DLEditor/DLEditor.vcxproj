@@ -44,8 +44,10 @@
     <ClInclude Include="cInput.h" />
     <ClInclude Include="cItem.h" />
     <ClInclude Include="cLevel.h" />
+    <ClInclude Include="cMessenger.h" />
     <ClInclude Include="cMouse.h" />
     <ClInclude Include="cParser.h" />
+    <ClInclude Include="cProperty.h" />
     <ClInclude Include="cSDL2GameObject.h" />
     <ClInclude Include="cSDL2Graphics.h" />
     <ClInclude Include="cSDL2Rect.h" />
@@ -89,6 +91,7 @@
     <ClCompile Include="cLevel.cpp" />
     <ClCompile Include="cMouse.cpp" />
     <ClCompile Include="cParser.cpp" />
+    <ClCompile Include="cProperty.cpp" />
     <ClCompile Include="cSDL2GameObject.cpp" />
     <ClCompile Include="cSDL2Graphics.cpp" />
     <ClCompile Include="cSDL2Rect.cpp" />
@@ -99,6 +102,7 @@
     <ClCompile Include="cTimer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="sqlite3.c" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9B16F194-82FF-46D7-BE57-93D9C94EB675}</ProjectGuid>
