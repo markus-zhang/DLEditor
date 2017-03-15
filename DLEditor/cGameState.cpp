@@ -61,6 +61,9 @@ cGameState::cGameState(cGraphics* graphics, cInput* input) :
 	m_FileManager.RemoveSpace(test);
 	std::cout << "test is " << test << "\n";
 
+	//TinyXML2 test
+
+
 	//Test Inventory
 	//m_FileManager.LoadInventoryFromFile("item.txt", m_Inventory);
 	//vector<cItem>::iterator it;

@@ -12,6 +12,8 @@ class cGUI
 {
 public:
 	std::vector<cGUIBasicButton> m_BasicButton;
+	//	Test for save button
+	cGUIBasicButton m_SaveButton;
 private:
 	std::vector<cStaticButton> m_GeneralButton;
 	std::vector<cStaticButton> m_TileButton;
@@ -39,6 +41,10 @@ public:
 	int GetBoundaryY()	{ return m_GeneralBoundaryY; }
 	int GetTileXBias()	{ return m_TileXBias; }
 	void SetTileXBias(int xbias)	{ m_TileXBias = xbias; }
+	
+	void OnClick(const char* filename, std::vector<cTile> mapvector,
+		const char* mapid, int playerx, int playery);
+
 	void OnClickTileRightScroll();
 	void OnClickTileLeftScroll();
 	bool CanClickTileRightScroll();

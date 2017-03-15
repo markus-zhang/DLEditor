@@ -18,7 +18,7 @@
 //#include "cPlayerEntity.h"
 #include "cGUIBasicButton.h"
 //#include "cDMLParser.h"
-
+#include "cResManager.h"
 
 class cFile
 {
@@ -129,5 +129,8 @@ public:
 	void BuildDMLTree(std::string filename);
 	//bool IsFullNode(std::string line);
 	//cDMLObjectNode* BuildDMLNode(std::string line);
+
+	// Load Resource
+	void LoadResource(cResManager resmanager);
 };
 #endif

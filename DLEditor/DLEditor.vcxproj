@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cAction.h" />
     <ClInclude Include="cAI.h" />
     <ClInclude Include="cAnimation.h" />
     <ClInclude Include="cAnimationManager.h" />
@@ -26,7 +27,8 @@
     <ClInclude Include="cCursor.h" />
     <ClInclude Include="cDatabase.h" />
     <ClInclude Include="cDMLParser.h" />
-    <ClInclude Include="cEditorAction.h" />
+    <ClInclude Include="cEditorButtonAction.h" />
+    <ClInclude Include="cEditorGUIAction.h" />
     <ClInclude Include="cEditorPlayerStart.h" />
     <ClInclude Include="cEditorState.h" />
     <ClInclude Include="cEffect.h" />
@@ -48,6 +50,7 @@
     <ClInclude Include="cMouse.h" />
     <ClInclude Include="cParser.h" />
     <ClInclude Include="cProperty.h" />
+    <ClInclude Include="cResManager.h" />
     <ClInclude Include="cSDL2GameObject.h" />
     <ClInclude Include="cSDL2Graphics.h" />
     <ClInclude Include="cSDL2Rect.h" />
@@ -63,6 +66,7 @@
     <ClInclude Include="math.h" />
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="sqlite3ext.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +76,8 @@
     <ClCompile Include="cCursor.cpp" />
     <ClCompile Include="cDatabase.cpp" />
     <ClCompile Include="cDMLParser.cpp" />
-    <ClCompile Include="cEditorAction.cpp" />
+    <ClCompile Include="cEditorButtonAction.cpp" />
+    <ClCompile Include="cEditorGUIAction.cpp" />
     <ClCompile Include="cEditorState.cpp" />
     <ClCompile Include="cEffect.cpp" />
     <ClCompile Include="cEntity.cpp" />
@@ -92,6 +97,7 @@
     <ClCompile Include="cMouse.cpp" />
     <ClCompile Include="cParser.cpp" />
     <ClCompile Include="cProperty.cpp" />
+    <ClCompile Include="cResManager.cpp" />
     <ClCompile Include="cSDL2GameObject.cpp" />
     <ClCompile Include="cSDL2Graphics.cpp" />
     <ClCompile Include="cSDL2Rect.cpp" />
@@ -103,6 +109,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9B16F194-82FF-46D7-BE57-93D9C94EB675}</ProjectGuid>

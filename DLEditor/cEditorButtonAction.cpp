@@ -1,4 +1,4 @@
-#include "cEditorAction.h"
+#include "cEditorButtonAction.h"
 #include "DebugTool.h"
 
 void cSaveMapAction::Init(const char* filename,
@@ -68,6 +68,97 @@ bool cSaveMapAction::SaveMap(const char* filename,
 }
 
 void cSaveMapAction::Execute()
+{
+	if (m_Filename != NULL && m_Map.size() >= 0 &&
+		m_MapID.length() > 0 && m_PlayerX >= 0 && m_PlayerY >= 0)
+	{
+		SaveMap(m_Filename, m_Map, m_MapID, m_PlayerX, m_PlayerY);
+	}
+	else
+	{
+		DebugMessage("SaveMapAction::Execute: Some elements are NULL or of length 0!");
+	}
+}
+
+/////////////////////////////////////////////////////
+
+void cSaveMapXMLAction::Init(const char* filename,
+	const std::vector<cTile>& mapvector,
+	std::string mapid, int playerx, int playery)
+{
+	m_Filename = filename;
+	m_Map = mapvector;
+	m_MapID = mapid;
+	m_PlayerX = playerx;
+	m_PlayerY = playery;
+}
+
+bool cSaveMapXMLAction::SaveMap(const char* filename,
+	const std::vector<cTile>& mapvector,
+	std::string mapid, int playerx, int playery)
+{
+	// The root 
+	tinyxml2::XMLNode* pRoot = m_XMLFile.NewElement("MAP");
+	m_XMLFile.InsertFirstChild(pRoot);
+
+	// Map id
+	tinyxml2::XMLElement* pID = m_XMLFile.NewElement("MapID");
+	pID->SetText(mapid.c_str());	// tinyXML2 cannot take string
+	pRoot->InsertEndChild(pID);
+
+	// PlayerX and PlayerY
+	tinyxml2::XMLElement* pPlayer = m_XMLFile.NewElement("PlayerX");
+	pPlayer->SetText(playerx);
+	pRoot->InsertEndChild(pPlayer);
+	pPlayer = m_XMLFile.NewElement("PlayerY");
+	pPlayer->SetText(playery);
+	pRoot->InsertEndChild(pPlayer);
+
+	// Map data
+	tinyxml2::XMLElement* pTiles = m_XMLFile.NewElement("TILES");
+	pRoot->InsertEndChild(pTiles);
+	for (auto it = mapvector.begin(); it != mapvector.end(); it++)
+	{	
+		std::string id = (*it).GetID();
+		char access = id.at(0);	// First char of ID
+		tinyxml2::XMLElement* pMapElement = m_XMLFile.NewElement("ID");
+		pMapElement->SetText((*it).GetID().c_str());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("X");
+		pMapElement->SetText((*it).GetX());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("Y");
+		pMapElement->SetText((*it).GetY());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("ImageX");
+		pMapElement->SetText((*it).GetImageX());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("ImageY");
+		pMapElement->SetText((*it).GetImageY());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("Width");
+		pMapElement->SetText((*it).GetWidth());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("Height");
+		pMapElement->SetText((*it).GetHeight());
+		pTiles->InsertEndChild(pMapElement);
+
+		pMapElement = m_XMLFile.NewElement("Access");
+		pMapElement->SetText(access);
+		pTiles->InsertEndChild(pMapElement);
+	}
+	//	Save
+	m_XMLFile.SaveFile(filename);
+	return true;
+}
+
+void cSaveMapXMLAction::Execute()
 {
 	if (m_Filename != NULL && m_Map.size() >= 0 &&
 		m_MapID.length() > 0 && m_PlayerX >= 0 && m_PlayerY >= 0)

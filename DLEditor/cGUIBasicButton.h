@@ -6,7 +6,7 @@
 #include "cGraphics.h"
 #include "Defines.h"
 //#include "cFile.h"
-#include "cEditorAction.h"
+#include "cEditorButtonAction.h"
 
 //cFile file;
 class cFile;
@@ -14,6 +14,8 @@ class cFile;
 class cGUIBasicButton
 {
 public:
+	cGUIBasicButton();
+	~cGUIBasicButton();
 	bool Load(cGraphics* graphics, SDL_Texture* bitmap,
 		int x, int y,
 		int img_x, int img_y, int width, int height,

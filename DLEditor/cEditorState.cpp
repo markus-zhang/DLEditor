@@ -260,6 +260,12 @@ void cEditorState::HandleInput(cStateManager* state_manager)
 				// Add codes for tiles and entities
 				int x = m_Input->GetX();
 				int y = m_Input->GetY();
+
+				//	Test Code!!!!!!!!!!!!	//
+				m_GUI.OnClick(m_MapID.GetText().c_str(), m_MapVector, 
+					m_MapID.GetText().c_str(), m_PlayerStart.m_X, m_PlayerStart.m_Y);
+				break;
+				//	End of Test Code        //
 				
 				// Click on TextInput
 				if (x <= 420 + m_MapID.GetWidth() && x >= 420)	{

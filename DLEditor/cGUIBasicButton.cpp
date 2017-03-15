@@ -1,6 +1,9 @@
 #include "cGUIBasicButton.h"
 #include "DebugTool.h"
 
+cGUIBasicButton::cGUIBasicButton() {}
+cGUIBasicButton::~cGUIBasicButton() {}
+
 bool cGUIBasicButton::Load(
 	cGraphics* graphics, SDL_Texture* bitmap,
 	int x, int y, int img_x, int img_y,
@@ -39,6 +42,9 @@ bool cGUIBasicButton::Load(
 	{
 	case Save:
 		m_Action = new cSaveMapAction;
+		break;
+	case SaveXML:
+		m_Action = new cSaveMapXMLAction;
 		break;
 	default:
 		DebugMessage("Invalid action type");

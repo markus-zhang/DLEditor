@@ -138,9 +138,6 @@
     <ClInclude Include="cAI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cEditorAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -148,6 +145,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cMessenger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cResManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cEditorButtonAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cEditorGUIAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -251,9 +263,6 @@
     <ClCompile Include="cAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cEditorAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -261,6 +270,18 @@
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="cProperty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cResManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cEditorButtonAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cEditorGUIAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

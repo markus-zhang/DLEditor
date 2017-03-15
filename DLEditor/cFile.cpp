@@ -1469,3 +1469,29 @@ void cFile::BuildDMLTree(std::string filename)
 	}
 	*/
 }
+
+void cFile::LoadResource(cResManager resmanager)
+{
+	std::ifstream resfile;
+	resfile.open(RES_LIST_NAME);	// Defines.h
+	if (!resfile.is_open())
+	{
+		std::cout << "Resource file not found!";
+		//	Push a Debug item to Event Queue
+		//	Need to implement Event Queue first
+		return;
+	}
+
+	std::string sLine;
+	SDL_Texture* m_Holder;
+
+	//Read item file line by line
+
+	while (!resfile.eof())
+	{
+		getline(resfile, sLine);
+		//	Validate the line (if it ends with .png)
+		//	ValidateResLine(sLine);
+
+	}
+}

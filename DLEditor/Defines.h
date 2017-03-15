@@ -9,6 +9,9 @@
 //#define WINDOW_HEIGHT  400
 //#define WINDOW_TITLE   "Space Invaders Clone"
 
+// Resource Manager defines
+#define RES_LIST_NAME			"GameRes.ini"
+
 // Game defines
 #define GAME_WIDTH				800
 #define GAME_HEIGHT				640

@@ -4,6 +4,8 @@ cGUI::cGUI()	{
 	m_GeneralBoundaryX = m_GeneralBoundaryY = 0;
 	m_TileXBias = m_EntityXBias = 0;
 	m_MaximumTileDisplay = EDITOR_TILE_MAXIMUM;
+	//	Test for save button
+	
 }
 cGUI::~cGUI(){}
 
@@ -68,6 +70,13 @@ cEntity cGUI::GetEntityByID(std::string id, int x, int y)	{
 			return temp;
 		}
 	}
+}
+
+void cGUI::OnClick(const char* filename, std::vector<cTile> mapvector,
+	const char* mapid, int playerx, int playery)
+{
+	//	Test Code, we don't bother to check which one is clicked
+	
 }
 
 void cGUI::OnClickTileRightScroll()	{
